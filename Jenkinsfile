@@ -8,21 +8,21 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('Build Docker Image') {
             steps {
-                echo 'Buildando aplicação...'
+                sh 'docker build -t devops-lab-nginx:latest .'
             }
         }
 
         stage('Test') {
             steps {
-                echo 'Rodando testes...'
+                echo 'Imagem Docker criada com sucesso'
             }
         }
 
         stage('Deploy') {
             steps {
-                echo 'Deploy no Kubernetes...'
+                echo 'Próximo passo: deploy no Kubernetes'
             }
         }
     }
